@@ -1,0 +1,341 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>LCM - Leads and Contacts Manager</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Leads And Contacts Manager&rdquo; Documentation by &ldquo;leeb003&rdquo; v1.3</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Leads and Contacts Manager - LCM&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 07/18/2013<br>
+					By: Lee Beck<br>
+					Email: <a href="mailto:info@scripthat.com">info@scripthat.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing LCM. If you have any questions that are beyond the scope of this help file, 
+				please feel free to email via my user page contact form <a href="http://codecanyon.net/user/leeb003">here</a>. Thank you!
+				</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#description">Description</a></li>
+			<li><a href="#upgrade">New in Version 1.1</a></li>
+			<li><a href="#upgrade1.2">New in Version 1.2</a></li>
+			<li><a href="#upgrade1.3">New in Version 1.3</a></li>
+			<li><a href="#upgrade1.3.2">New in Version 1.3.2</a></li>
+			<li><a href="#upgrade1.3.3">New in Version 1.3.3</a></li>
+			<li><a href="#requirements">Requirements</a></li>
+			<li><a href="#install">Quick Start</a></li>
+			<li><a href="#files">Core Files and Structure</a></li>
+			<li><a href="#examples">Video examples of using LCM</a></li>
+			<li><a href="#credits">Sources and Credits</a></li>
+			
+			
+
+		</ol>
+		
+		<hr>
+		
+		<h3 id="description"><strong>Description</strong> - <a href="#toc">top</a></h3>
+		<p>
+		  This application is your very own leads and contacts manager.  This tool allows you to keep track of your leads and / or contacts, organize them by Source, Type, or Status so that
+		  you can readily view your contacts and track them.  This system is set up to allow multiple users to manage your leads and contacts.  A log keeps track of detailed changes made by 
+		  all users which is paginated, searchable and tracks user ip addresses so you know who changed what.  Logins have some extra security built in to include sha1 client side hashing along
+		  with server side salt, and all ajax requests and forms require valid session tokens.  There are 2 user roles - admin and user.  Admins have access to the settings tab which lets them change all configurable items (including adding, removing, and 
+		  modifying users).  Normal users can edit, add, delete leads, and add or remove notes for the leads.  LCM is highly configurable for your needs, allowing you to create your own Source Groups, Type groups 
+		  and Status groups.  Graphical representations on the Statistics page let you quickly see your top Lead Sources, Lead Types, Status counts and trends in lead generation in the last 12 month time period.
+		  <ol>
+		  <li>Create your own Source, Type, and Status groups</li>
+		  <li>Import / Export leads in csv, xls or xlsx format.</li>
+		  <li>Support built in for results pagination, searching, sorting.</li>
+		  <li>Installation script to help you get going, if you can install wordpress you can install LCM</li>
+		  <li>Dynamic Statistics and graphs to show important information</li>
+		  <li>Multiple Users</li>
+		  <li>Multiple notes can be created for each lead</li>
+		  <li>Leads can have a primary email address and up to 3 secondary email addresses</li>
+		  <li>Admins can manage other user accounts</li>
+		  <li>Lead creation data and modification tracking built in</li>
+		  <li>Add, Remove, Edit leads, and create Notes for them.</li>
+		  <li>Changes to leads and contacts are highlighted for quick reference point.</li>
+		  <li>Quickly remove all Leads (If you really need to!) in the settings area</li>
+		  <li>No Limit on number of Sources or Types, Status is limited by space in top banner</li>
+		  
+		  </ol>
+		  
+		  
+		</p>
+		<img src="assets/images/calculator.jpg" />
+		<br />
+		<img src="assets/images/calcResults.jpg" />
+		<br />
+		
+		<hr>
+		<h3 id="requirements"><strong>Requirements</strong> - <a href="#toc">top</a></h3>
+		<p>
+		  Requirements
+		  <ol>
+		    <li>A webserver (tested to work in a linux hosting environment)</li>
+			<li>An unzip program to extract the files</li>
+		    <li>PHP 5.2+</li>
+			<li>PHP Session support</li>
+			<li>PHP PDO Extension</li>
+			<li>PHP MYSQL Extension</li>
+			<li>MySQL Database 5+</li>
+		  </ol>
+		</p>
+		<hr>
+		
+		<h3 id="install"><strong>Quick Start - Install</strong> - <a href="#toc">top</a></h3>
+		<p>
+		  To install, extract the zip file on your webserver taking note of the directory you put it in (default folder created is lcm).  Next you will need to create a new
+		  MySql Database with your favorite program and take note of the database name, your username and password used.  In phpMyAdmin, here's what creating a database
+		  looks like:
+		  <br /><img src="assets/images/createDB.jpg" /><br />
+		  
+		  Once you have created the database, open your browser to www.yoursite.com/lcm/ (or the folder you put it in) where you should be presented with the following screen: 
+		  <br /><img src="assets/images/install1.jpg" /><br /> 
+		  Insert your database settings, and click 'Test Database', if the installer is able to connect to the database you will be presented with the following screen
+		  <br /><img src="assets/images/install2.jpg" /><br /> 
+		  At this point just click the 'Run Install' button which will create the tables in your database and config file for you.  LCM will give you the option of downloading
+		  the config file (variables.php) in case it is unable to write the file, and it's a good idea to download this file anyways since it contains your settings.  To 
+		  download, click the yellow button that says 'Download Variables File'.  If LCM could not write the file all you would need to do in this case is upload the file to your server in the
+		  classes directory.  Here is what that screen looks like:
+		  <br /><img src="assets/images/install3.jpg" /><br /> 
+		  At this time, you can click the 'Login to LCM' and begin working in it.  If you are redirected to the install page again, that means the variables.php file was
+		  not written, so you'll need to copy it to the server.  Otherwise you will be presented with the login screen to your fresh install of LCM:
+		  <br /><img src="assets/images/install4.jpg" /><br />
+		  Default Login is<br />
+		  <b>username: admin<br />
+		  password: admin</b><br />
+		  Now you will want to create your Source, Types, and Status Groups in settings and add your leads either by importing from a spreadsheet or hand entering them.
+		  Here are some example Source, Type and Status groups to help you think of what will work for you...
+		  </p>
+		  Source
+		  <ol>
+		    <li>Referral</li>
+			<li>FaceBook</li>
+			<li>Website</li>
+			<li>Seminar</li>
+			<li>Network Group</li>
+			<li>Sign Call</li>
+			<li>Other</li>
+			<li>Cold Call</li>
+		  </ol>
+		  Type
+		  <ol>
+		    <li>Buyer</li>
+			<li>Seller</li>
+			<li>Buyer / Seller</li>
+		  </ol>
+		  Status
+		  <ol>
+		    <li>Active</li>
+			<li>Complete</li>
+			<li>Dead</li>
+			<li>Hold</li>
+		  </ol>
+			
+		  
+		<hr>
+
+		<h3 id="upgrade"><strong>New Features in version 1.1</strong> - <a href="#toc">top</a></h3>
+		<ol>
+		  <li>iPad support (Landscape mode preferred).</li>
+		  <li>New Site Settings Tab that gives you the ability to:
+			<ol>
+			  <li>Set the number of results per page for leads and activity log.</li>
+			  <li>Name and display a custom field of your choice.</li>
+			  <li>Choose The results layout for the main leads page by dragging and dropping the Columns you want in order.</li>
+			</ol>
+		  </li>
+		  <li>More search options on the leads page to filter results.</li>
+		</ol>
+		
+		To upgrade to version 1.1 from version 1.0 
+		<ol>
+		  <li>Download the new zip file</li>
+		  <li>Remove the old LCM install directory</li>
+		  <li>Install following the procedure listed for a new install!</li>
+		</ol>
+		Tables will be modified and shouldn't change your lead data, but as always - make a backup or export your leads and contacts first just
+		to be safe. 
+		<hr>
+		
+		<h3 id="upgrade1.2"><strong>New in Version 1.2</strong> - <a href="toc">top</a></h3>
+		<ol>
+		  <li>Added capability to change the names and re-purpose most fields to customize your data.</li>
+		  <li>Added user role 'Read Only', who can only view leads and statistics.</li>
+		  <li>3 customizable fields.</li>
+		  <li>Fixed search to include all fields.</li>
+		  <li>Many other minor improvements.</li>
+		</ol>
+		Upgrade process is the same as installation and version 1.1 upgrade.  As always, make a backup or export your contacts
+		first to be safe.
+		
+		<hr>
+		
+		<h3 id="upgrade1.3"><strong>New in Version 1.3</strong> - <a href="toc">top</a></h3>
+		<ol>
+		  <li>Fixed 'SecondaryPhone' label change bug.</li>
+		  <li>Changed order on input forms for Country and State to make better sense.</li>
+		  <li>Fixed bug displaying Country in individual lead view.</li>
+		</ol>
+		Upgrade process is the same as installation and version 1.1 upgrade.  As always, make a backup or export your contacts
+		first to be safe.
+		
+		<hr>
+		
+		<h3 id="upgrade1.3.2"><strong>New in Version 1.3.2</strong> - <a href="toc">top</a></h3>
+		<ol>
+		  <li>Ability to edit existing notes</li>
+		  <li>Fixed a couple of special character bugs on input.</li>
+		  <li>Fixed timestamp to match database 24 hour view in log view.</li>
+		  <li>Added Advanced multiple column searching capability</li>
+		  <li>Added utf-8 support and database conversion routine for multi-language searching, inputs and naming.</li>
+		  
+		</ol>
+		Upgrade process is the same as installation and other upgrades.  As always, make a backup or export your contacts
+		first to be safe.
+		
+		<hr>
+		
+		<h3 id="upgrade1.3.3"><strong>New in Version 1.3.3</strong> - <a href="toc">top</a></h3>
+		<ol>
+		  <li>Lead Ownership capability implemented, and multiple views.</li>
+		  <li>Separate views option for individual users - Users can be made to only manage and see their own leads.</li>
+		  <li>Admin and Global users can assign leads and manage other users leads.</li>
+		  <li>If a user is deleted, their leads go back to the admin.</li>
+		</ol>
+		Upgrade process is the same as installation and other upgrades.  As always, make a backup or export your contacts
+		first to be safe.
+		
+		<hr>
+		
+		
+		<h3 id="files"><strong>Core Files and Structure</strong> - <a href="#toc">top</a></h3>
+
+		<p>This is an explanation of the files included and their purpose.</p>
+		
+		root folder
+		<ol>
+		  <li>config.php - This is the Settings page where you set up your groups, users, view access log, export/import leads etc..</li>
+		  <li>footer.php - This is the footer file for all pages</li>
+		  <li>header.php - This is the header file for all pages</li>
+		  <li>index.php - Main leads page giving you the overview of all leads in your database.</li>
+		  <li>install.php - Installation script that creates the tables and variables.php file for you on first run (you can remove this after install).</li>
+		  <li>lead.php - Individual lead view showing all lead fields and notes pertaining to that lead.</li>
+		  <li>login.php - The login page</li>
+		  <li>logout.php - The logout page that clears sessions and redirects to the login page</li>
+		  <li>phpinfo.php - PHP information about your server you can view</li>
+		  <li>stats.php - Statistics page giving you graphical summaries of your leads and contacts</li>
+		  <li>topBanner.php - Top Menu items are in this file</li>
+		</ol>
+		
+		css folder
+		<ol>
+		  <li>style.css - Styling for all pages, organized by page sections</li>
+		  <li>menu.css - Styling for the top menu.</li>
+		  <li>img - More image files used</li>
+		</ol>
+		
+		js folder
+		<ol>
+		  <li>ajaxfileupload.js - Used in uploading leads and contacts from a spreadsheet</li>
+		  <li>config.js - Javascript that partains to the config.php page</li>
+		  <li>FlashCanvas - Used to allow displaying graphs for ie versions before 9</li>
+		  <li>Flotr2-master - Used to create the graphs on the statistics page</li>
+		  <li>jquery-1.9.1.min.js - jQuery!</li>
+		  <li>jquery.simplemodal-1.4.4.js - used for creating the modals</li>
+		  <li>jquery.ui.touch-punch.js - Javascript supporting touch screen interactions</li>
+		  <li>jquery-ui-1.10.3.custom.min.js - jQuery UI</li>
+		  <li>lead.js - Javascript pertaining to the lead.php page</li>
+		  <li>leads.js - Javascript pertaining to the leads.php page</li>
+		  <li>sha1.js - Used to hash passwords in javascript before being sent to webserver ( a little extra security)</li>
+		  <li>stats.js - Javascript pertaining to the stats.php page</li>
+		  <li>tinymce - TinyMCE used for formatting notes created</li>
+		  <li>utf8.js - Used in conjunction with sha1.js for client side password hashing</li>
+		</ol>
+		
+		ajax folder
+		<ol>
+		  <li>ajaxFunctions.php - Most of the ajax requests use this file on the site.</li>
+		  <li>exportDirect.php - Exporting of csv and xlsx leads and contacts direct to browser instead of depending on file storage</li>
+		  <li>import.php - Ajax processing for the import tool.</li>
+		  <li>install.php - Ajax processing for install.php in root directory</li>
+		</ol>
+		
+		classes folder
+		<ol>
+		   <li>dbClass.php - PDO database class, used for all database interaction.</li>
+		   <li>logging.php - Class for logging actions performed on site</li>
+		   <li>paging.php - Class used to create pagination links on site</li>
+		   <li>PHPExcel - PHPExcel library files</li>
+		   <li>variables.php - The configuration file containing database and other settings specific to your site</li>
+		   <li>variables.php.example - An example configuration file for reference</li>
+		</ol>
+		
+		img folder
+		<ol>
+		  <li>Folder containing images used across LCM</li>
+		</ol>
+		
+		<hr>
+		<h3 id="examples"><strong>E) Example Usage Videos</strong> - <a href="#toc">top</a></h3>
+		<ul> 
+		  <li><a href="exampleInstall.mp4" target="new">Installing LCM.</a></li>
+		  <li><a href="exampleStatus.mp4" target="new">Adding a Status Group and moving a lead into it.</a></li>
+		  <li><a href="exampleUserAdd.mp4" target="new">Example of adding a new user.</a></li>
+		  <li><a href="exampleImport.mp4" target="new">Example Importing Leads and Contacts</a></li>
+		  <li><a href="sortingColumns.mp4" target="new">Example Sorting and Choosing Leads Columns</a></li>
+		</ul>  
+		<hr>
+		
+		<h3 id="credits"><strong>E) Sources and Credits</strong> - <a href="#toc">top</a></h3>
+		
+		<p>I've used the following images, icons or other files as listed.
+		
+		<ul>
+			<li>PHPExcel (http://phpexcel.codeplex.com/)</li>
+			<li>Flotr2 (http://www.humblesoftware.com/flotr2/)</li>
+			<li>TinyMCE (http://www.tinymce.com/)</li>
+			<li>jQuery UI Touch Punch (http://touchpunch.furf.com/)</li>
+		</ul>
+		
+		<hr>
+		
+		<p>Once again, thank you so much for purchasing this script. As I said at the beginning, I'd be glad to help you if you have any questions relating to this script. No guarantees, but I'll do my best to assist you.
+		</p>
+		<p class="append-bottom alt large"><strong>leeb003</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
